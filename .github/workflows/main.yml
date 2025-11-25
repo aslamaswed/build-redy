@@ -1,0 +1,21 @@
+name: build my angiler/react app
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+  build-anguler-app:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6.0.0
+      - name: setup node js
+        uses: actions/setup-node@v6.0.0
+        with:
+          node-version: 22.x
+      - name: install dependensis
+        run: npm install
+      - name: build angular app
+        run: npm run build
